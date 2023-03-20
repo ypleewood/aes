@@ -164,3 +164,15 @@ func (a *Aes) AesDecryptCFB(data []byte) (d []byte, err error) {
         d = data
         return
 }
+
+const DEFAULT_KEY = "k39sn4ldsemxoe3kdielxo7edlxdapqd"
+
+var defaultAes, _ = NewAes(DEFAULT_KEY, MODE_CBC)
+
+func Encrypt(data string) ([]byte, error) {
+        return defaultAes.Encrypt(data)
+}
+
+func Decrypt(data string) ([]byte, error) {
+        return defaultAes.Decrypt(data)
+}
